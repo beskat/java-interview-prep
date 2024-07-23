@@ -8,6 +8,9 @@ public class RandomJavaExamples {
         swapStrings();
         frequencyCounter();
         compressStringExample();
+        formAndReplaceSentence();
+        isStringPalindrome("abcdcba");
+        isStringPalindrome(String.valueOf(156510));
     }
 
     /*
@@ -87,5 +90,41 @@ public class RandomJavaExamples {
         compressed.append(str.charAt(str.length() - 1)).append(count);
 
         return compressed.toString();
+    }
+
+    // Question: Write a method that checks if a given string is a palindrome or not.
+    // This method checks if a given string is a palindrome by comparing the original string with its reversed version.
+    public static void isStringPalindrome(String str) {
+        if (str == null || str.isEmpty()) {
+            System.out.println("The string is empty or null, which cannot be a palindrome.");
+            return;
+        }
+        int left = 0;
+        int right = str.length() - 1;
+        while (left < right) {
+            if (str.charAt(left) != str.charAt(right)) {
+                System.out.println("'" + str + "' is not a palindrome.");
+                return;
+            }
+            left++;
+            right--;
+        }
+        System.out.println("'" + str + "' is a palindrome.");
+    }
+
+    // Form a sentence from an array of words and replaces a target word with a replacement word.
+    public static void formAndReplaceSentence() {
+        String[] words = {"I", "like", "JAVA"};
+
+        // Form a sentence by concatenating the array elements
+        StringBuilder sentence = new StringBuilder();
+        for (String word : words) {
+            sentence.append(word).append(" ");
+        }
+
+        // Convert the StringBuilder to a String and replace the target word with the replacement word
+        String finalSentence = sentence.toString().trim().replace("like", "love") + ".";
+
+        System.out.println(finalSentence);
     }
 }
