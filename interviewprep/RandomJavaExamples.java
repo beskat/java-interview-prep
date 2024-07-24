@@ -11,6 +11,8 @@ public class RandomJavaExamples {
         formAndReplaceSentence();
         isStringPalindrome("abcdcba");
         isStringPalindrome(String.valueOf(156510));
+        capitalizeFirstLetter("hello world");
+        fibonacci(10);
     }
 
     /*
@@ -127,4 +129,24 @@ public class RandomJavaExamples {
 
         System.out.println(finalSentence);
     }
+
+    // Capitalize first letter of a string
+    public static void capitalizeFirstLetter(String str) {
+        String result = str.substring(0, 1).toUpperCase() + str.substring(1);
+        System.out.println(result);
+    }
+
+    // Print Fibonacci series
+    public static void fibonacci(int number) {
+        int num1 = 0, num2 = 1;
+
+        for (int i = 0; i < number; i++) {
+            System.out.print(num1 + " ");
+
+            int num3 = num2 + num1;
+            num1 = num2;
+            num2 = num3;
+        }
+    }
+
 }
