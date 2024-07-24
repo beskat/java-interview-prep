@@ -101,17 +101,15 @@ public class RandomJavaExamples {
             System.out.println("The string is empty or null, which cannot be a palindrome.");
             return;
         }
-        int left = 0;
-        int right = str.length() - 1;
-        while (left < right) {
-            if (str.charAt(left) != str.charAt(right)) {
-                System.out.println("'" + str + "' is not a palindrome.");
-                return;
-            }
-            left++;
-            right--;
+
+        StringBuilder sb = new StringBuilder(str);
+        String reversedString = sb.reverse().toString();
+
+        if (str.equals(reversedString)) {
+            System.out.println("'" + str + "' is a palindrome.");
+        } else {
+            System.out.println("'" + str + "' is not a palindrome.");
         }
-        System.out.println("'" + str + "' is a palindrome.");
     }
 
     // Form a sentence from an array of words and replaces a target word with a replacement word.
