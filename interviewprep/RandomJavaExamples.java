@@ -13,6 +13,7 @@ public class RandomJavaExamples {
         isStringPalindrome(String.valueOf(156510));
         capitalizeFirstLetter("hello world");
         fibonacci(10);
+        primeNumbers(100);
     }
 
     /*
@@ -145,6 +146,26 @@ public class RandomJavaExamples {
             num1 = num2;
             num2 = num3;
         }
+        System.out.println();
     }
 
+    public static void primeNumbers(int limit) {
+        System.out.println("Prime numbers up to " + limit + " are:");
+
+        for (int num = 2; num <= limit; num++) {
+            boolean isPrime = true;
+            if (num > 1) {
+                for (int i = 2; i <= Math.sqrt(num); i++) {
+                    if (num % i == 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime) {
+                    System.out.print(num + " ");
+                }
+            }
+        }
+        System.out.println();
+    }
 }
